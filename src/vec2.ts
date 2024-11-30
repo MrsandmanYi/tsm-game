@@ -34,9 +34,25 @@ export default class vec2 {
         this.values[1] = values[1]
     }
 
-    constructor(values?: [number, number]) {
-        if (values !== undefined) {
-            this.xy = values
+    constructor(values?: [number, number] | { x: number, y: number });
+    constructor(x: number, y: number);
+    constructor(arg1?: any, arg2?: number)
+    {
+        if (arg1 === undefined) {
+            this.values[0] = 0
+            this.values[1] = 0
+            return;
+        }
+
+        if (Array.isArray(arg1)) {
+            this.values[0] = arg1[0]
+            this.values[1] = arg1[1]
+        } else if (typeof arg1 === 'object') {
+            this.values[0] = arg1.x
+            this.values[1] = arg1.y
+        } else {
+            this.values[0] = arg1
+            this.values[1] = arg2
         }
     }
 

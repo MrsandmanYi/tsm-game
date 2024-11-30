@@ -49,15 +49,39 @@ export default class vec3 {
         this.values[1] = values[1]
     }
 
+    set xz(values: [number, number]) {
+        this.values[0] = values[0]
+        this.values[2] = values[1]
+    }
+
     set xyz(values: [number, number, number]) {
         this.values[0] = values[0]
         this.values[1] = values[1]
         this.values[2] = values[2]
     }
 
-    constructor(values?: [number, number, number]) {
-        if (values !== undefined) {
-            this.xyz = values
+    constructor(values?: [number, number, number] | { x: number, y: number, z: number });
+    constructor(x: number, y: number, z: number);
+    constructor(arg1?: any, arg2?: number, arg3?: number) {
+        if (arg1 === undefined) {
+            this.values[0] = 0
+            this.values[1] = 0
+            this.values[2] = 0
+            return
+        }
+
+        if (Array.isArray(arg1)) {
+            this.values[0] = arg1[0]
+            this.values[1] = arg1[1]
+            this.values[2] = arg1[2]
+        } else if (typeof arg1 === 'object') {
+            this.values[0] = arg1.x
+            this.values[1] = arg1.y
+            this.values[2] = arg1.z
+        } else {
+            this.values[0] = arg1
+            this.values[1] = arg2
+            this.values[2] = arg3
         }
     }
 

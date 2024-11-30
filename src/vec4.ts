@@ -27,6 +27,20 @@ export default class vec4 {
         ]
     }
 
+    get yz(): [number, number] {
+        return [
+            this.values[1],
+            this.values[2],
+        ]
+    }
+
+    get xz(): [number, number] {
+        return [
+            this.values[0],
+            this.values[2],
+        ]
+    }
+
     get xyz(): [number, number, number] {
         return [
             this.values[0],
@@ -152,9 +166,32 @@ export default class vec4 {
         this.values[3] = values[3]
     }
 
-    constructor(values?: [number, number, number, number]) {
-        if (values !== undefined) {
-            this.xyzw = values
+    constructor(values?: [number, number, number, number] | { x: number, y: number, z: number, w: number });
+    constructor(x: number, y: number, z: number, w: number);
+    constructor(arg1?: any, arg2?: number, arg3?: number, arg4?: number) {
+        if (arg1 === undefined) {
+            this.values[0] = 0
+            this.values[1] = 0
+            this.values[2] = 0
+            this.values[3] = 0
+            return
+        }
+
+        if (Array.isArray(arg1)) {
+            this.values[0] = arg1[0]
+            this.values[1] = arg1[1]
+            this.values[2] = arg1[2]
+            this.values[3] = arg1[3]
+        } else if (typeof arg1 === 'object') {
+            this.values[0] = arg1.x
+            this.values[1] = arg1.y
+            this.values[2] = arg1.z
+            this.values[3] = arg1.w
+        } else {
+            this.values[0] = arg1
+            this.values[1] = arg2
+            this.values[2] = arg3
+            this.values[3] = arg4
         }
     }
 
