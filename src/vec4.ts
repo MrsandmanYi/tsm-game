@@ -189,9 +189,9 @@ export default class vec4 {
             this.values[3] = arg1.w
         } else {
             this.values[0] = arg1
-            this.values[1] = arg2
-            this.values[2] = arg3
-            this.values[3] = arg4
+            this.values[1] = arg2 || 0
+            this.values[2] = arg3 || 0
+            this.values[3] = arg4 || 0
         }
     }
 

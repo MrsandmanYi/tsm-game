@@ -52,7 +52,7 @@ export default class vec2 {
             this.values[1] = arg1.y
         } else {
             this.values[0] = arg1
-            this.values[1] = arg2
+            this.values[1] = arg2 || 0
         }
     }
 

@@ -80,8 +80,8 @@ export default class vec3 {
             this.values[2] = arg1.z
         } else {
             this.values[0] = arg1
-            this.values[1] = arg2
-            this.values[2] = arg3
+            this.values[1] = arg2 || 0
+            this.values[2] = arg3 || 0
         }
     }
 
