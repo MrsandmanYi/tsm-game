@@ -31,6 +31,14 @@ import vec2 from './vec2'
 import vec3 from './vec3'
 import vec4 from './vec4'
 
+export const Matrix2x2 = mat2
+export const Matrix3x3 = mat3
+export const Matrix4x4 = mat4
+export const Quaternion = quat
+export const Vector2 = vec2
+export const Vector3 = vec3
+export const Vector4 = vec4
+
 export default {
     vec2, vec3, vec4,
     mat2, mat3, mat4,
