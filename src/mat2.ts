@@ -100,7 +100,9 @@ export default class mat2 {
     inverse(): mat2 {
         let det = this.determinant()
 
-        if (!det) { return null }
+        if (!det) { 
+            return this
+        }
 
         det = 1.0 / det
 
